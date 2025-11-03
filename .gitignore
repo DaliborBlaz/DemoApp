@@ -1,0 +1,26 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+*.DotSettings.user
+
+## Logs
+*.log
+
+## Build outputs
+artifacts/
+publish/
+
+## System files
+.DS_Store
+Thumbs.db
+
+## Secrets
+.env
+secrets.json
