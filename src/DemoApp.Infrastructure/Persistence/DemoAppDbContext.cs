@@ -18,5 +18,5 @@ namespace  DemoApp.Infrastructure.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DemoAppDbContext).Assembly);
         }
     }
-};
+}
 

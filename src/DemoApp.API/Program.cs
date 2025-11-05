@@ -18,6 +18,7 @@ builder.Services.AddDbContext<DemoAppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddAuthorization();
 
 // Configure strongly-typed JWT settings
 var jwtSection = builder.Configuration.GetSection("Jwt");
