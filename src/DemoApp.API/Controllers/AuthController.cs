@@ -1,4 +1,4 @@
-﻿using DemoApp.Aplication.Common.Interfaces;
+﻿using DemoApp.Application.Common.Interfaces;
 using DemoApp.Application.Models.Auth;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,28 +19,27 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
-        try
-        {
-            var result = await _authService.RegisterAsync(request.Email, request.Password, request.FullName);
+        var result = await _authService.RegisterAsync(request.Email, request.Password, request.FullName);
+
+        if (result.Success)
             return Ok(result);
-        }
-        catch(Exception ex)
-        {
-                return UnprocessableEntity(new { message = ex.Message });
-        }
+        
+        if (string.Equals(result.Message, "User already exists", StringComparison.OrdinalIgnoreCase))
+            return Conflict(result);
+        
+
+        return BadRequest(result);
     }
     
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        try
-        {
-            var result = await _authService.LoginAsync(request.Email, request.Password);
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return Unauthorized(new { message = ex.Message });
-        }
+        var result = await _authService.LoginAsync(request.Email, request.Password);
+
+        if (!result.Success)
+            return Unauthorized(result);
+        
+
+        return Ok(result);
     }
 }

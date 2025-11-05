@@ -1,6 +1,6 @@
 ﻿using DemoApp.Application.Models;
 
-namespace DemoApp.Aplication.Common.Interfaces;
+namespace DemoApp.Application.Common.Interfaces;
 
 public interface IAuthService
 {
