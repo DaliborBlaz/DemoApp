@@ -1,4 +1,4 @@
-﻿using DemoApp.Aplication.Common.Interfaces;
+﻿using DemoApp.Application.Common.Interfaces;
 using DemoApp.Application.Models.Auth;
 using Microsoft.AspNetCore.Mvc;
 

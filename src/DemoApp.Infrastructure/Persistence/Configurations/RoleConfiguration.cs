@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace DemoApp.Infrastructure.Persistence.Configurations;
 
 
-public class RoleConfigurations : IEntityTypeConfiguration<Role>
+public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
     public void Configure(EntityTypeBuilder<Role> builder)
     {
